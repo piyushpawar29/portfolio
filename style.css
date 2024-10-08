@@ -79,6 +79,8 @@ section{
     font-size:3.2rem;
     font-weight: 700;
 }
+
+
 span,.logo span{
     color: var(--main-color);
 }
@@ -145,49 +147,69 @@ span,.logo span{
 .text-animation{
     font-size: 40px;
     font-weight: 600;
+    min-width: 290px;
+}
+.text-animation {
+    font-size: 40px;
+    font-weight: 600;
     min-width: 280px;
+    display: inline-block;
+    vertical-align: middle;
 }
-.text-animation span{
+
+.text-animation span {
     position: relative;
+    display: inline-block;
+   
 }
-.text-animation span::before{
-    content: 'Youtuber' ;
+
+.text-animation span::before {
+    content: 'Youtuber';
     color: var(--main-color);
     animation: words 20s infinite;
 }
-.text-animation span::after{
+
+.text-animation span::after {
     content: '';
     background-color: var(--bg-color);
     position: absolute;
-    width: calc(100% + 8px);
+    width: 100%; /* Changed from calc(100% + 8px) to 100% */
     height: 100%;
     border-left: 3px solid var(--bg-color);
-    right: -8px;
+    right: 0px;
     animation: cursor 0.6s infinite, typing 20s steps(14) infinite;
 }
-@keyframes cursor{
-    to{
+
+@keyframes cursor {
+    to {
         border-left: 2px solid var(--main-color);
     }
 }
+
 @keyframes words {
-    0%,33%{
+    0%, 33% {
         content: 'Web Developer';
     }
-    34%,66%{
+    34%, 66% {
         content: 'Web Designer';
     }
-    67%,100%{
-        content: 'Content Creater';
+    67%, 100% {
+        content: 'Content Creator';
     }
 }
-@keyframes typing{
-    10%,15%,30%,35%,50%,55%,70%,90%,95%{
-        width: 5px;
+
+@keyframes typing {
+    10%, 15%, 30%, 35%, 50%, 55%, 70%, 90%, 95% {
+        width: 0; /* Set width to 0 during erasing phase */
     }
-    5%,20%,25%,40%,45%,60%,65%,80%,85%{
-        width: calc(100% + 8px);
+    5%, 20%, 25%, 40%, 45%, 60%, 65%, 80%, 85% {
+        width: 100%; /* Typing phase extends only to 100% */
     }
+}
+
+/* Optional adjustments */
+.text-animation h2 {
+    line-height: 1;
 }
 .heading{
     text-align: center;
@@ -214,7 +236,7 @@ span,.logo span{
     justify-content: center;
     text-align: center;
     background: var(--main-color);
-    padding: 3rem 2rem 4rem;
+    padding: 3rem 2rem 3rem;
     height: 300px;
     border-radius: 2rem;
     border: 3px solid transparent;
@@ -634,15 +656,21 @@ span,.logo span{
     .home-content h3{
         font-size: 2.6rem;
     }
+    .home-content h2{
+        font-size: 3rem;
+    }
     .home-content h1{
-        font-size: 5rem;
+        font-size: 4.5rem;
     }
     .home-img img{
         width: 70vw;
         margin-top: 4rem;
     }
     .text-animation span{
-        font-size: 5rem;
+        font-size: 3rem;
+    }
+    .text-animation span::after{
+        top:4px;
     }
     .services h2{
         margin-bottom: 3rem;
